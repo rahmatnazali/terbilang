@@ -18,7 +18,7 @@ fn join_string(list: Vec<String>) -> String {
     trimmed_string.to_string()
 }
 
-/// Solve 1 - 11
+/// Solve 1 - 9
 fn solve_basic_number(number: u32) -> String {
     match number {
         0 => String::from(""),
@@ -31,9 +31,7 @@ fn solve_basic_number(number: u32) -> String {
         7 => String::from("tujuh"),
         8 => String::from("delapan"),
         9 => String::from("sembilan"),
-        10 => String::from("sepuluh"),
-        11 => String::from("sebelas"),
-        _ => panic!("Basic number exceeded 11")
+        _ => panic!("Basic number exceeded 9")
     }
 }
 
@@ -41,12 +39,22 @@ fn solve_basic_number(number: u32) -> String {
 fn solve_tens(number: u32) -> String {
     let divide_result = divider::DivideResult::from(number, 10);
     if divide_result.head == 1 {
-        format!("{} belas", solve_basic_number(divide_result.remainder))
+        if divide_result.remainder == 0 {
+            String::from("sepuluh")
+        } else if divide_result.remainder == 1 {
+            String::from("sebelas")
+        } else {
+            format!("{} belas", solve_basic_number(divide_result.remainder))
+        }
     } else {
-        join_string(vec![
-            format!("{} puluh", solve_basic_number(divide_result.head)),
-            solve_basic_number(divide_result.remainder),
-        ])
+        if divide_result.head == 0 {
+            solve_basic_number(divide_result.remainder)
+        } else {
+            join_string(vec![
+                format!("{} puluh", solve_basic_number(divide_result.head)),
+                solve_basic_number(divide_result.remainder),
+            ])
+        }
     }
 }
 
