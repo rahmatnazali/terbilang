@@ -29,7 +29,7 @@ fn solve_basic_number(number: u32) -> String {
     }
 }
 
-/// Solve 12 - 19
+/// Solve 12 - 99
 fn solve_tens(number: u32) -> String {
     let divide_result = divider::DivideResult::from(number, 10);
     if divide_result.head == 1 {
