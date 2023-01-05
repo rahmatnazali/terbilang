@@ -49,3 +49,18 @@ fn test_tens_21() {
 fn test_tens_99() {
     assert_eq!(terbilang::from(99), String::from("sembilan puluh sembilan"));
 }
+
+#[test]
+fn test_hundred_100() {
+    assert_eq!(terbilang::from(100), String::from("seratus"));
+}
+
+#[test]
+fn test_hundred_101() {
+    assert_eq!(terbilang::from(101), String::from("seratus satu"));
+}
+
+#[test]
+fn test_hundred_110() {
+    assert_eq!(terbilang::from(110), String::from("seratus sepuluh"));
+}
