@@ -1,12 +1,17 @@
+mod divider;
+
 pub fn from(number: u32) -> String {
     if number == 0 {
         return String::from("nol");
     } else if number < 12 {
         return solve_basic_number(number)
+    } else if number < 20 {
+        return solve_teens(number)
     }
     todo!("The number is too high");
 }
 
+/// Solve 1 - 11
 fn solve_basic_number(number: u32) -> String {
     match number {
         1 => String::from("satu"),
@@ -22,6 +27,12 @@ fn solve_basic_number(number: u32) -> String {
         11 => String::from("sebelas"),
         _ => panic!("Basic number exceeded 11")
     }
+}
+
+/// Solve 12 - 19
+fn solve_teens(number: u32) -> String {
+    let divide_result = divider::DivideResult::from(number, 10);
+    format!("{} belas", solve_basic_number(divide_result.remainder))
 }
 
 #[cfg(test)]
@@ -82,5 +93,19 @@ mod basic_number_tests {
     fn sebelas() {
         assert_eq!(solve_basic_number(11), String::from("sebelas"));
     }
+}
 
+#[cfg(test)]
+mod teens_test {
+    use super::*;
+
+    #[test]
+    fn dua_belas() {
+        assert_eq!(solve_teens(12), String::from("dua belas"));
+    }
+
+    #[test]
+    fn sembilan_belas() {
+        assert_eq!(solve_teens(19), String::from("sembilan belas"));
+    }
 }

@@ -21,26 +21,26 @@ fn test_basic_number_3() {
 }
 
 #[test]
-fn test_tens_1() {
+fn test_teens_1() {
     assert_eq!(terbilang::from(12), String::from("dua belas"));
 }
 
 #[test]
-fn test_tens_2() {
+fn test_teens_2() {
     assert_eq!(terbilang::from(13), String::from("tiga belas"));
 }
 
 #[test]
-fn test_tens_3() {
+fn test_teens_3() {
     assert_eq!(terbilang::from(19), String::from("sembilan belas"));
 }
 
 #[test]
-fn test_tens_4() {
+fn test_tens_1() {
     assert_eq!(terbilang::from(20), String::from("dua puluh"));
 }
 
 #[test]
-fn test_tens_5() {
+fn test_tens_2() {
     assert_eq!(terbilang::from(21), String::from("dua puluh satu"));
 }
