@@ -1,4 +1,4 @@
-use terbilang;
+use yaterbilang as terbilang;
 
 #[test]
 fn test_zero() {
