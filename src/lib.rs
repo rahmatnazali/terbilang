@@ -11,9 +11,17 @@ pub fn from(number: u32) -> String {
     todo!("The number is too high");
 }
 
+/// Joins list of string to a single string
+fn join_string(list: Vec<String>) -> String {
+    let joined_string = list.join(" ");
+    let trimmed_string = joined_string.trim();
+    trimmed_string.to_string()
+}
+
 /// Solve 1 - 11
 fn solve_basic_number(number: u32) -> String {
     match number {
+        0 => String::from(""),
         1 => String::from("satu"),
         2 => String::from("dua"),
         3 => String::from("tiga"),
@@ -35,14 +43,10 @@ fn solve_tens(number: u32) -> String {
     if divide_result.head == 1 {
         format!("{} belas", solve_basic_number(divide_result.remainder))
     } else {
-        if divide_result.remainder == 0 {
-            format!("{} puluh", solve_basic_number(divide_result.head))
-        } else {
-            format!("{} puluh {}",
-                    solve_basic_number(divide_result.head),
-                    solve_basic_number(divide_result.remainder)
-            )
-        }
+        join_string(vec![
+            format!("{} puluh", solve_basic_number(divide_result.head)),
+            solve_basic_number(divide_result.remainder),
+        ])
     }
 }
 
