@@ -125,7 +125,7 @@ fn solve_thousands(number: u64) -> String {
 fn solve_tens_of_thousands(number: u64) -> String {
     let divide_result = divider::DivideResult::from(number, 1_000);
     if divide_result.head < 10 {
-        solve_thousands(divide_result.remainder)
+        solve_thousands(number)
     } else {
         join_string(vec![
             format!("{} ribu", solve_tens(divide_result.head)),
@@ -138,7 +138,7 @@ fn solve_tens_of_thousands(number: u64) -> String {
 fn solve_hundreds_of_thousands(number: u64) -> String {
     let divide_result = divider::DivideResult::from(number, 1_000);
     if divide_result.head < 100 {
-        solve_thousands(divide_result.remainder)
+        solve_thousands(number)
     } else {
         join_string(vec![
             format!("{} ribu", solve_hundreds(divide_result.head)),
@@ -151,7 +151,7 @@ fn solve_hundreds_of_thousands(number: u64) -> String {
 fn solve_millions(number: u64) -> String {
     let divide_result = divider::DivideResult::from(number, 1_000_000);
     if divide_result.head == 0 {
-        solve_hundreds_of_thousands(divide_result.remainder)
+        solve_hundreds_of_thousands(number)
     } else {
         join_string(vec![
             format!("{} juta", solve_basic_number(divide_result.head)),
@@ -164,7 +164,7 @@ fn solve_millions(number: u64) -> String {
 fn solve_tens_of_millions(number: u64) -> String {
     let divide_result = divider::DivideResult::from(number, 1_000_000);
     if divide_result.head < 10 {
-        solve_millions(divide_result.remainder)
+        solve_millions(number)
     } else {
         join_string(vec![
             format!("{} juta", solve_tens(divide_result.head)),
