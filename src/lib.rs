@@ -5,7 +5,7 @@ pub fn from(number: u32) -> String {
         return String::from("nol");
     } else if number < 12 {
         return solve_basic_number(number)
-    } else if number < 99 {
+    } else if number < 100 {
         return solve_tens(number)
     }
     todo!("The number is too high");
