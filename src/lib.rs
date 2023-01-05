@@ -34,6 +34,8 @@ pub fn from(number: u64) -> String {
         return solve_tens_of_millions(number)
     } else if number < 1_000_000_000 {
         return solve_hundreds_of_millions(number)
+    } else if number < 10_000_000_000 {
+        return solve_billions(number)
     }
     todo!("The number is too high and not supported at the moment");
 }
@@ -182,6 +184,19 @@ fn solve_hundreds_of_millions(number: u64) -> String {
         join_string(vec![
             format!("{} juta", solve_hundreds(divide_result.head)),
             solve_hundreds_of_thousands(divide_result.remainder),
+        ])
+    }
+}
+
+/// Solve 1.000.000.000 - 9.999.999.999
+fn solve_billions(number: u64) -> String {
+    let divide_result = divider::DivideResult::from(number, 1_000_000_000);
+    if divide_result.head == 0 {
+        solve_hundreds_of_millions(number)
+    } else {
+        join_string(vec![
+            format!("{} triliun", solve_basic_number(divide_result.head)),
+            solve_hundreds_of_millions(divide_result.remainder),
         ])
     }
 }
