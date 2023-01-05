@@ -94,3 +94,38 @@ fn test_hundred_603() {
 fn test_hundred_999() {
     assert_eq!(terbilang::from(999), String::from("sembilan ratus sembilan puluh sembilan"));
 }
+
+#[test]
+fn test_thousand_1000() {
+    assert_eq!(terbilang::from(1000), String::from("seribu"));
+}
+
+#[test]
+fn test_thousand_1001() {
+    assert_eq!(terbilang::from(1001), String::from("seribu satu"));
+}
+
+#[test]
+fn test_thousand_1010() {
+    assert_eq!(terbilang::from(1010), String::from("seribu sepuluh"));
+}
+
+#[test]
+fn test_thousand_1013() {
+    assert_eq!(terbilang::from(1013), String::from("seribu tiga belas"));
+}
+
+#[test]
+fn test_thousand_1100() {
+    assert_eq!(terbilang::from(1100), String::from("seribu seratus"));
+}
+
+#[test]
+fn test_thousand_1101() {
+    assert_eq!(terbilang::from(1101), String::from("seribu seratus satu"));
+}
+
+#[test]
+fn test_thousand_1199() {
+    assert_eq!(terbilang::from(1199), String::from("seribu seratus sembilan puluh sembilan"));
+}
