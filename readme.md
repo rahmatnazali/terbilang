@@ -11,4 +11,4 @@ assert_eq!(terbilang::from(32), "tiga puluh dua");
 assert_eq!(terbilang::from(998), "sembilan ratus sembilan puluh delapan");
 ```
 
-Version `0.1.1` only supports up to 9.999 at the moment.
+Version `0.1.2` supports up to 999.999.
