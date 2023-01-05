@@ -25,7 +25,7 @@ pub fn from(number: u64) -> String {
     } else if number < 10000 {
         return solve_thousand(number)
     }
-    todo!("The number is too high");
+    todo!("The number is too high and not supported at the moment");
 }
 
 /// Joins list of string to a single string
