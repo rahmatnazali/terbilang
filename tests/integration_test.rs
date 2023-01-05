@@ -217,8 +217,21 @@ fn test_tens_of_millions_99999999() {
 }
 
 #[test]
-#[ignore]
+fn test_hundreds_of_millions_100000000() {
+    assert_eq!(terbilang::from(100_000_000), String::from("seratus juta"));
+}
+
+#[test]
+fn test_hundreds_of_millions_101001000() {
+    assert_eq!(terbilang::from(101_001_000), String::from("seratus satu juta seribu"));
+}
+
+#[test]
 fn test_hundreds_of_millions_109001234() {
-    assert_eq!(terbilang::from(109_001_234), String::from("seratus sembilan juta seribu duaratus tiga puluh empat"));
-    todo!("enable this testcase on hundreds of millions")
+    assert_eq!(terbilang::from(109_001_234), String::from("seratus sembilan juta seribu dua ratus tiga puluh empat"));
+}
+
+#[test]
+fn test_hundreds_of_millions_999999999() {
+    assert_eq!(terbilang::from(999_999_999), String::from("sembilan ratus sembilan puluh sembilan juta sembilan ratus sembilan puluh sembilan ribu sembilan ratus sembilan puluh sembilan"));
 }
