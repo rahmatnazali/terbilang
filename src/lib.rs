@@ -3,7 +3,7 @@ mod divider;
 pub fn from(number: u32) -> String {
     if number == 0 {
         return String::from("nol");
-    } else if number < 12 {
+    } else if number < 10 {
         return solve_basic_number(number)
     } else if number < 100 {
         return solve_tens(number)
@@ -105,16 +105,6 @@ mod basic_number_tests {
     #[test]
     fn sembilan() {
         assert_eq!(solve_basic_number(9), String::from("sembilan"));
-    }
-
-    #[test]
-    fn sepuluh() {
-        assert_eq!(solve_basic_number(10), String::from("sepuluh"));
-    }
-
-    #[test]
-    fn sebelas() {
-        assert_eq!(solve_basic_number(11), String::from("sebelas"));
     }
 }
 
