@@ -185,3 +185,18 @@ fn test_hundreds_of_thousands_123456() {
 fn test_hundreds_of_thousands_999999() {
     assert_eq!(terbilang::from(999_999), String::from("sembilan ratus sembilan puluh sembilan ribu sembilan ratus sembilan puluh sembilan"));
 }
+
+#[test]
+fn test_millions_1000000() {
+    assert_eq!(terbilang::from(1_000_000), String::from("satu juta"));
+}
+
+#[test]
+fn test_millions_1234567() {
+    assert_eq!(terbilang::from(1_234_567), String::from("satu juta dua ratus tiga puluh empat ribu lima ratus enam puluh tujuh"));
+}
+
+#[test]
+fn test_millions_9999999() {
+    assert_eq!(terbilang::from(9_999_999), String::from("sembilan juta sembilan ratus sembilan puluh sembilan ribu sembilan ratus sembilan puluh sembilan"));
+}
