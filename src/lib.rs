@@ -1,5 +1,10 @@
-pub fn terbilang(number: usize) -> String {
-    todo!("return the terbilang result");
+pub fn from(number: u32) -> String {
+    if number == 0 {
+        return String::from("nol");
+    } else if number < 12 {
+        return solve_basic_number(number)
+    }
+    todo!("The number is too high");
 }
 
 fn solve_basic_number(number: u32) -> String {
