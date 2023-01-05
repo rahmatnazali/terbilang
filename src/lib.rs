@@ -1,5 +1,16 @@
 mod divider;
 
+/// Converts u32 number to said Indonesian
+///
+/// ```
+/// use yaterbilang as terbilang;
+///
+/// assert_eq!(terbilang::from(0), "nol");
+/// assert_eq!(terbilang::from(11), "sebelas");
+/// assert_eq!(terbilang::from(32), "tiga puluh dua");
+/// assert_eq!(terbilang::from(998), "sembilan ratus sembilan puluh delapan");
+/// ```
+///
 pub fn from(number: u32) -> String {
     if number == 0 {
         return String::from("nol");
