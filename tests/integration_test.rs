@@ -265,3 +265,18 @@ fn test_tens_of_billions_12345678901() {
 fn test_tens_of_billions_99999999999() {
     assert_eq!(terbilang::from(99_999_999_999), String::from("sembilan puluh sembilan triliun sembilan ratus sembilan puluh sembilan juta sembilan ratus sembilan puluh sembilan ribu sembilan ratus sembilan puluh sembilan"));
 }
+
+#[test]
+fn test_hundreds_of_billions_100000000000() {
+    assert_eq!(terbilang::from(100_000_000_000), String::from("seratus triliun"));
+}
+
+#[test]
+fn test_hundreds_of_billions_123456789012() {
+    assert_eq!(terbilang::from(123_456_789_012), String::from("seratus dua puluh tiga triliun empat ratus lima puluh enam juta tujuh ratus delapan puluh sembilan ribu dua belas"));
+}
+
+#[test]
+fn test_hundreds_of_billions_999999999999() {
+    assert_eq!(terbilang::from(999_999_999_999), String::from("sembilan ratus sembilan puluh sembilan triliun sembilan ratus sembilan puluh sembilan juta sembilan ratus sembilan puluh sembilan ribu sembilan ratus sembilan puluh sembilan"));
+}
