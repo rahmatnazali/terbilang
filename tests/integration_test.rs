@@ -156,6 +156,32 @@ fn test_tens_of_thousands_10101() {
 }
 
 #[test]
+fn test_tens_of_thousands_12345() {
+    assert_eq!(terbilang::from(12_345), String::from("dua belas ribu tiga ratus empat puluh lima"));
+}
+
+
+#[test]
 fn test_tens_of_thousands_99999() {
     assert_eq!(terbilang::from(99_999), String::from("sembilan puluh sembilan ribu sembilan ratus sembilan puluh sembilan"));
+}
+
+#[test]
+fn test_hundreds_of_thousands_100000() {
+    assert_eq!(terbilang::from(100_000), String::from("seratus ribu"));
+}
+
+#[test]
+fn test_hundreds_of_thousands_100001() {
+    assert_eq!(terbilang::from(100_001), String::from("seratus ribu satu"));
+}
+
+#[test]
+fn test_hundreds_of_thousands_123456() {
+    assert_eq!(terbilang::from(123_456), String::from("seratus dua puluh tiga ribu empat ratus lima puluh enam"));
+}
+
+#[test]
+fn test_hundreds_of_thousands_999999() {
+    assert_eq!(terbilang::from(999_999), String::from("sembilan ratus sembilan puluh sembilan ribu sembilan ratus sembilan puluh sembilan"));
 }
