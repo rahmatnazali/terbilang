@@ -64,3 +64,23 @@ fn test_hundred_101() {
 fn test_hundred_110() {
     assert_eq!(terbilang::from(110), String::from("seratus sepuluh"));
 }
+
+#[test]
+fn test_hundred_111() {
+    assert_eq!(terbilang::from(111), String::from("seratus sebelas"));
+}
+
+#[test]
+fn test_hundred_112() {
+    assert_eq!(terbilang::from(112), String::from("seratus dua belas"));
+}
+
+#[test]
+fn test_hundred_117() {
+    assert_eq!(terbilang::from(117), String::from("seratus tujuh belas"));
+}
+
+#[test]
+fn test_hundred_159() {
+    assert_eq!(terbilang::from(159), String::from("seratus lima puluh sembilan"));
+}
