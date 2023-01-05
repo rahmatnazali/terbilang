@@ -1,6 +1,6 @@
 # Yet another terbilang 🤷
 
-Converts `u32` number to said Indonesian.
+Converts `u64` number to said Indonesian.
 
 ```rust
 use yaterbilang as terbilang;
