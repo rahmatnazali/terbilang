@@ -23,7 +23,7 @@ pub fn from(number: u64) -> String {
     } else if number < 1000 {
         return solve_hundreds(number)
     } else if number < 10000 {
-        return solve_thousand(number)
+        return solve_thousands(number)
     }
     todo!("The number is too high and not supported at the moment");
 }
@@ -93,8 +93,8 @@ fn solve_hundreds(number: u64) -> String {
     }
 }
 
-/// Solve 1000 - 9.999
-fn solve_thousand(number: u64) -> String {
+/// Solve 1.000 - 9.999
+fn solve_thousands(number: u64) -> String {
     let divide_result = divider::DivideResult::from(number, 1000);
     if divide_result.head == 0 {
         solve_hundreds(divide_result.remainder)
