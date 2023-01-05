@@ -2,10 +2,11 @@ mod divider;
 
 /// Converts u32 number to said Indonesian
 ///
+/// Examples:
+///
 /// ```
 /// use yaterbilang as terbilang;
 ///
-/// Examples:
 /// assert_eq!(terbilang::from(0), "nol");
 /// assert_eq!(terbilang::from(11), "sebelas");
 /// assert_eq!(terbilang::from(32), "tiga puluh dua");
