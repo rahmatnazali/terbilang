@@ -182,6 +182,11 @@ fn test_hundreds_of_thousands_123456() {
 }
 
 #[test]
+fn test_hundreds_of_thousands_109123() {
+    assert_eq!(terbilang::from(109_123), String::from("seratus sembilan ribu seratus dua puluh tiga"));
+}
+
+#[test]
 fn test_hundreds_of_thousands_999999() {
     assert_eq!(terbilang::from(999_999), String::from("sembilan ratus sembilan puluh sembilan ribu sembilan ratus sembilan puluh sembilan"));
 }
@@ -199,4 +204,21 @@ fn test_millions_1234567() {
 #[test]
 fn test_millions_9999999() {
     assert_eq!(terbilang::from(9_999_999), String::from("sembilan juta sembilan ratus sembilan puluh sembilan ribu sembilan ratus sembilan puluh sembilan"));
+}
+
+#[test]
+fn test_tens_of_millions_10000000() {
+    assert_eq!(terbilang::from(10_000_000), String::from("sepuluh juta"));
+}
+
+#[test]
+fn test_tens_of_millions_99999999() {
+    assert_eq!(terbilang::from(99_999_999), String::from("sembilan puluh sembilan juta sembilan ratus sembilan puluh sembilan ribu sembilan ratus sembilan puluh sembilan"));
+}
+
+#[test]
+#[ignore]
+fn test_hundreds_of_millions_109001234() {
+    assert_eq!(terbilang::from(109_001_234), String::from("seratus sembilan juta seribu duaratus tiga puluh empat"));
+    todo!("enable this testcase on hundreds of millions")
 }
