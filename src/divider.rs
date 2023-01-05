@@ -1,10 +1,10 @@
 pub struct DivideResult {
-    pub head: u32,
-    pub remainder: u32
+    pub head: u64,
+    pub remainder: u64
 }
 
 impl DivideResult {
-    pub fn from(number: u32, denominator: u32) -> Self {
+    pub fn from(number: u64, denominator: u64) -> Self {
         let head = number / denominator;
         let remainder = number % denominator;
 

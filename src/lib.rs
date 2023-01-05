@@ -1,6 +1,6 @@
 mod divider;
 
-/// Converts u32 number to said Indonesian
+/// Converts u64 number to said Indonesian
 ///
 /// Examples:
 ///
@@ -13,7 +13,7 @@ mod divider;
 /// assert_eq!(terbilang::from(998), "sembilan ratus sembilan puluh delapan");
 /// ```
 ///
-pub fn from(number: u32) -> String {
+pub fn from(number: u64) -> String {
     if number == 0 {
         return String::from("nol");
     } else if number < 10 {
@@ -36,7 +36,7 @@ fn join_string(list: Vec<String>) -> String {
 }
 
 /// Solve 1 - 9
-fn solve_basic_number(number: u32) -> String {
+fn solve_basic_number(number: u64) -> String {
     match number {
         0 => String::from(""),
         1 => String::from("satu"),
@@ -53,7 +53,7 @@ fn solve_basic_number(number: u32) -> String {
 }
 
 /// Solve 12 - 99
-fn solve_tens(number: u32) -> String {
+fn solve_tens(number: u64) -> String {
     let divide_result = divider::DivideResult::from(number, 10);
     if divide_result.head == 1 {
         if divide_result.remainder == 0 {
@@ -76,7 +76,7 @@ fn solve_tens(number: u32) -> String {
 }
 
 /// Solve 100 - 999
-fn solve_hundreds(number: u32) -> String {
+fn solve_hundreds(number: u64) -> String {
     let divide_result = divider::DivideResult::from(number, 100);
     if divide_result.head == 0 {
         solve_tens(divide_result.remainder)
@@ -94,7 +94,7 @@ fn solve_hundreds(number: u32) -> String {
 }
 
 /// Solve 1000 - 9.999
-fn solve_thousand(number: u32) -> String {
+fn solve_thousand(number: u64) -> String {
     let divide_result = divider::DivideResult::from(number, 1000);
     if divide_result.head == 0 {
         solve_hundreds(divide_result.remainder)
