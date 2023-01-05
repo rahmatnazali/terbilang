@@ -7,6 +7,8 @@ pub fn from(number: u32) -> String {
         return solve_basic_number(number)
     } else if number < 100 {
         return solve_tens(number)
+    } else if number < 1000 {
+        return solve_hundreds(number)
     }
     todo!("The number is too high");
 }
@@ -55,6 +57,24 @@ fn solve_tens(number: u32) -> String {
                 solve_basic_number(divide_result.remainder),
             ])
         }
+    }
+}
+
+/// Solve 100 - 999
+fn solve_hundreds(number: u32) -> String {
+    let divide_result = divider::DivideResult::from(number, 100);
+    if divide_result.head == 0 {
+        solve_tens(divide_result.remainder)
+    } else if divide_result.head == 1 {
+        join_string(vec![
+            String::from("seratus"),
+            solve_tens(divide_result.remainder),
+        ])
+    } else {
+        join_string(vec![
+            format!("{} ratus", solve_basic_number(divide_result.head)),
+            solve_tens(divide_result.remainder),
+        ])
     }
 }
 
