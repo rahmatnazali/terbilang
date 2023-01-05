@@ -20,10 +20,12 @@ pub fn from(number: u64) -> String {
         return solve_basic_number(number)
     } else if number < 100 {
         return solve_tens(number)
-    } else if number < 1000 {
+    } else if number < 1_000 {
         return solve_hundreds(number)
-    } else if number < 10000 {
+    } else if number < 10_000 {
         return solve_thousands(number)
+    } else if number < 100_000 {
+        return solve_tens_of_thousands(number)
     }
     todo!("The number is too high and not supported at the moment");
 }
@@ -95,7 +97,7 @@ fn solve_hundreds(number: u64) -> String {
 
 /// Solve 1.000 - 9.999
 fn solve_thousands(number: u64) -> String {
-    let divide_result = divider::DivideResult::from(number, 1000);
+    let divide_result = divider::DivideResult::from(number, 1_000);
     if divide_result.head == 0 {
         solve_hundreds(divide_result.remainder)
     } else if divide_result.head == 1 {
@@ -107,6 +109,19 @@ fn solve_thousands(number: u64) -> String {
         join_string(vec![
             format!("{} ribu", solve_basic_number(divide_result.head)),
             solve_hundreds(divide_result.remainder),
+        ])
+    }
+}
+
+/// Solve 10.000 - 99.999
+fn solve_tens_of_thousands(number: u64) -> String {
+    let divide_result = divider::DivideResult::from(number, 1_000);
+    if divide_result.head < 10 {
+        solve_thousands(divide_result.remainder)
+    } else {
+        join_string(vec![
+            format!("{} ribu", solve_tens(divide_result.head)),
+            solve_thousands(divide_result.remainder),
         ])
     }
 }
