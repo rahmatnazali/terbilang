@@ -129,3 +129,8 @@ fn test_thousand_1101() {
 fn test_thousand_1199() {
     assert_eq!(terbilang::from(1199), String::from("seribu seratus sembilan puluh sembilan"));
 }
+
+#[test]
+fn test_thousand_7898() {
+    assert_eq!(terbilang::from(7898), String::from("tujuh ribu delapan ratus sembilan puluh delapan"));
+}
