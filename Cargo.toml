@@ -2,7 +2,7 @@
 name = "yaterbilang"
 version = "0.1.5"
 edition = "2021"
-license-file = "LICENSE.md"
+license = "MIT OR Apache-2.0"
 description = "Yet another terbilang"
 #homepage = ""
 #documentation = ""
