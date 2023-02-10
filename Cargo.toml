@@ -9,7 +9,11 @@ description = "Yet another terbilang"
 repository = "https://github.com/rahmatnazali/yaterbilang"
 readme = "readme.md"
 keywords = ["number", "indonesian", "verbose", "said", "terbilang"]
-exclude = [".idea/*", "*.iml"]
+exclude = [
+    ".idea/*",
+    ".github/*",
+    "*.iml"
+]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
